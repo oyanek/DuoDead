@@ -1,2 +1,2 @@
-##DuoDead!
+## DuoDead!
 DuoLingo for dead languages
