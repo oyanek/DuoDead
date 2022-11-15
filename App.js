@@ -6,41 +6,24 @@ import { createBottomTabNavigator }
          from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { Container, Header, MainContent, NavButton } from '../components/structure.js';
+
 const Stack = createNativeStackNavigator();
 
-function Home({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center',
-                   alignItems: 'center' }}>
-      <Text>Home!</Text>
-      <Button
-              title="Go to Lessons"
-              onPress={() => navigation.navigate('Lessons')}
-            />
-    </View>
-  );
-}
+import HomeScreen from './screens/home.js';
+import LessonScreen from './screens/lessons.js';
 
-
-function Lessons({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Lessons Screen</Text>
-      <Button
-        title="Go to Lessons... again"
-        onPress={() => navigation.navigate('Lessons')}
-      />
-    </View>
-  );
-}
-
-export default function App() {
-  return (
-    <NavigationContainer >
-      <Stack.Navigator initialRouteName={Home}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Lessons" component={Lessons} />
+class App extends React.Component {
+  render() {
+    return(
+      <NavigationContainer >
+      <Stack.Navigator initialRouteName={HomeScreen}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Lessons" component={LessonScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+    )
+  }
 }
+
+export default App;
