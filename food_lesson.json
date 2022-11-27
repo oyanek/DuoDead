@@ -1,0 +1,67 @@
+{
+	"Lesson 1 (Food)":[
+		{
+			"oe_word":"hlaf",
+			"me_word":"bread",
+			"tags":"food, singular, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"wæstm",
+			"me_word":"fruit",
+			"tags":"food, singular, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"berġan",
+			"me_word":"berries",
+			"tags":"food, plural, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"berġan",
+			"me_word":"berries",
+			"tags":"food, plural, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"butere",
+			"me_word":"butter",
+			"tags":"food, singular, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"honig",
+			"me_word":"honey",
+			"tags":"food, singular, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"flæsc",
+			"me_word":"meat",
+			"tags":"food, singular, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"ciepe",
+			"me_word":"onion",
+			"tags":"food, singular, nominative",
+			"image":null,
+			"audio":null
+		}
+		{
+			"oe_word":"hwæte",
+			"me_word":"wheat",
+			"tags":"food, singular, nominative",
+			"image":null,
+			"audio":null
+		}
+	]
+}
