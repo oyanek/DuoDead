@@ -22,17 +22,10 @@
 			"audio":null
 		}
 		{
-			"oe_word":"berġan",
-			"me_word":"berries",
-			"tags":"food, plural, nominative",
-			"image":null,
-			"audio":null
-		}
-		{
 			"oe_word":"butere",
 			"me_word":"butter",
 			"tags":"food, singular, nominative",
-			"image":null,
+			"image":"lesson_images/butter.png",
 			"audio":null
 		}
 		{
