@@ -4,21 +4,21 @@
 			"oe_word":"hlaf",
 			"me_word":"bread",
 			"tags":"food, singular, nominative",
-			"image":null,
+			"image":"lesson_images/bread.png",
 			"audio":null
 		}
 		{
 			"oe_word":"wæstm",
 			"me_word":"fruit",
 			"tags":"food, singular, nominative",
-			"image":null,
+			"image":"lesson_images/fruit.png",
 			"audio":null
 		}
 		{
 			"oe_word":"berġan",
 			"me_word":"berries",
 			"tags":"food, plural, nominative",
-			"image":null,
+			"image":"lesson_images/berries.png",
 			"audio":null
 		}
 		{
