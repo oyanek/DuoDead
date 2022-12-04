@@ -6,6 +6,8 @@ import { Bar } from 'react-native-progress';
 
 import { Container, Header, MainContent, NavButton } from '../components/structure.js';
 
+
+
 class Mod1Screen extends React.Component {
     render(){
         return (
