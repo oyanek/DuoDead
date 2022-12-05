@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import {Button, Text , View, StyleSheet, Alert} from 'react-native';
 import { NavigationContainer }
          from '@react-navigation/native';
+import AppButton from '../assets/AppButton.js';
 
 import { Container, Header, MainContent, NavButton } from '../components/structure.js';
 import LessonScreen from './lessons.js';
@@ -12,18 +13,17 @@ class HomeScreen extends React.Component {
 
     render(){
         return (
-            <View style={{ flex: 1, justifyContent: 'space-evenly',
-                           alignItems: 'center' }}>
+            <View style={styles.container}>
               <Text>Duo-Dead Home!</Text>
-              <Button
-                      title="Choose Language"
-                      onPress={null}
-                    />
-              <Button
+              <AppButton
                       title="Start Lessons"
                       onPress={this.loadRoute}
                     />
-              <Button
+              <AppButton
+                      title="Choose Language"
+                      onPress={null}
+                    />
+              <AppButton
                       title="Account"
                       onPress={null}
                     />
@@ -33,3 +33,13 @@ class HomeScreen extends React.Component {
 }
 
 export default HomeScreen;
+
+const styles = StyleSheet.create({
+	
+	container :{
+		padding: 30,
+		height: '100%',
+		width: '100%',
+		backgroundColor: '#9d78ec'
+	}
+})

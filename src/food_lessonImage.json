@@ -1,0 +1,34 @@
+[
+		{
+			"oe_word":"hlaf",
+			"correct":"bread",
+			"incorrect": ["wrong","wrong","wrong"],
+			"tags":"food, singular, nominative",
+			"image":"../lesson_images/bread.png",
+			"audio":null
+		},
+		{
+			"oe_word":"wæstm",
+			"correct":"fruit",
+			"incorrect": ["wrong","wrong","wrong"],
+			"tags":"food, singular, nominative",
+			"image":"../lesson_images/fruit.png",
+			"audio":null
+		},
+		{
+			"oe_word":"berġan",
+			"correct":"berries",
+			"incorrect": ["wrong","wrong","wrong"],
+			"tags":"food, plural, nominative",
+			"image":"../lesson_images/berries.png",
+			"audio":null
+		},
+		{
+			"oe_word":"butere",
+			"correct":"butter",
+			"incorrect": ["wrong","wrong","wrong"],
+			"tags":"food, singular, nominative",
+			"image":"../lesson_images/butter.png",
+			"audio":null
+		}
+	]
