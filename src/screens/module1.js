@@ -1,5 +1,5 @@
 import React , {useState, useEffect} from "react";
-import {Button, Text , View, StyleSheet, Alert} from 'react-native';
+import {Button, Text , View, StyleSheet, Alert, SliderComponent} from 'react-native';
 import { ProgressBar, Colors , TextInput} from "react-native-paper";
 import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import food from "../food_lesson.json"
@@ -7,16 +7,30 @@ import AppButton from "../assets/AppButton"
 
 const Mod1Screen = () => {
 
-	const [status, setStatus] = useState() ;
+	const [status, setStatus] = useState();
+  const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
 	const [progressColor , setProgessColor] = useState('white');
   const [totalCount, setTotalCount] = useState(food.length);
   const [words, setWords] = useState(food);
   const [answers, setAnswers] = useState([]);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currentWord, setCurrentWord] = useState(words[0])
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
 	useEffect(() => {
-		if(status === 1)
+		if(status === 1){
 		setProgessColor('#33CC66');
-	}, [setStatus])
+    Alert.alert("You have completed the lesson! Your score was: "+countCorrectAnswers*100);
+    }
+  }, [status])
+
+  useEffect(() => {
+    const word = words[currentWordIndex];
+    setCurrentWord(word);
+    setAnswers(reorderAnswers(word));
+  }, [currentWordIndex]);
 
   const reorderAnswers = question => {
     const answers = [question.correct, ...question.incorrect];
@@ -31,18 +45,56 @@ const Mod1Screen = () => {
     return answers;
   };
 
-  const pickRan = question => {
-      const j = Math.floor(Math.random()*question.length);
-      return j;
-  }
-  
+  const selectAnswer = answer => {
+    setIsSubmitting(true);
+    setSelectedAnswer(answer);
+
+    if (answer === currentWord.correct) {
+      setCountCorrectAnswers(countCorrectAnswers + 1);
+      setBackgroundColor('green');
+    }else{
+      setBackgroundColor('red');
+    }
+
+    setTimeout(() => {
+      const newWordIndex = currentWordIndex + 1;
+
+      if (newWordIndex === words.length) {
+        setStatus(1);
+      } else {
+        setStatus(newWordIndex/words.length)
+        setCurrentWordIndex(newWordIndex);
+        setIsSubmitting(false);
+        setSelectedAnswer(null);
+      }
+    }, 750);
+  };
 
   return(
-    <View style={styles.container}>
+    <View padding={30} height={'100%'} width={'100%'} backgroundColor={backgroundColor}>
       <ProgressBar progress={status} color={progressColor} />
-      <Text style={styles.headline}>{words[pickRan(words)].oe_word}</Text>
+      <Text style={styles.headline}>{words[currentWordIndex].oe_word}</Text>
       <View>
-        <AppButton title="temp"/>
+        <AppButton 
+          title= {answers[0]} 
+          onPress={() => {
+            selectAnswer(answers[0])
+        }}/>
+        <AppButton 
+          title= {answers[1]} 
+          onPress={() => {
+            selectAnswer(answers[1])
+        }}/>
+        <AppButton 
+          title= {answers[2]} 
+          onPress={() => {
+            selectAnswer(answers[2])
+        }}/>
+        <AppButton 
+          title= {answers[3]} 
+          onPress={() => {
+            selectAnswer(answers[3])
+        }}/>
       </View>
     </View>
   )
@@ -57,7 +109,7 @@ const styles = StyleSheet.create({
 		padding: 30,
 		height: '100%',
 		width: '100%',
-		backgroundColor: '#003366'
+		backgroundColor: '#9d78ec'
 	},
   headline: {
     textAlign: "center",

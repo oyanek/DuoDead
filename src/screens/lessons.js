@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer }
          from '@react-navigation/native';
 import AppButton from '../assets/AppButton.js';
@@ -13,17 +13,17 @@ class LessonScreen extends React.Component {
   
   render(){
         return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent : 'space-evenly'}}>
+        <View style={styles.container}>
           <Text>Choose Your Lesson!</Text>
           <AppButton
-            title="Lesson 1" 
+            title="Word to Word" 
             onPress={this.loadRoute1}/>
           <AppButton 
-            title='Lesson 2' 
+            title='Image to Word' 
             onPress={this.loadRoute2}/>
 
           <AppButton 
-            title='Lesson 3' 
+            title='Audio to Word' 
             onPress={this.loadRoute3}/>
         </View>
       );
@@ -31,3 +31,14 @@ class LessonScreen extends React.Component {
 }
 
 export default LessonScreen;
+
+const styles = StyleSheet.create({
+	
+	container :{
+		padding: 30,
+		height: '100%',
+		width: '100%',
+		backgroundColor: '#9d78ec',
+    alignItems: 'center', 
+	}
+})
