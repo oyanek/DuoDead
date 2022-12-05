@@ -30,37 +30,5 @@
 			"tags":"food, singular, nominative",
 			"image":"../lesson_images/butter.png",
 			"audio":null
-		},
-		{
-			"oe_word":"honig",
-			"correct":"honey",
-			"incorrect": ["wrong","wrong","wrong"],
-			"tags":"food, singular, nominative",
-			"image":null,
-			"audio":null
-		},
-		{
-			"oe_word":"flæsc",
-			"correct":"meat",
-			"incorrect": ["wrong","wrong","wrong"],
-			"tags":"food, singular, nominative",
-			"image":null,
-			"audio":null
-		},
-		{
-			"oe_word":"ciepe",
-			"correct":"onion",
-			"incorrect": ["wrong","wrong","wrong"],
-			"tags":"food, singular, nominative",
-			"image":null,
-			"audio":null
-		},
-		{
-			"oe_word":"hwæte",
-			"correct":"wheat",
-			"incorrect": ["wrong","wrong","wrong"],
-			"tags":"food, singular, nominative",
-			"image":null,
-			"audio":null
 		}
 	]
