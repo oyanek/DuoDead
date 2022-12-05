@@ -1,13 +1,15 @@
-import React, { useEffect, useState, Image } from "react";
-import { Alert, Button, SliderComponent, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { Alert, Button, SliderComponent, StyleSheet, Text, View, Image } from 'react-native';
 import { Colors, ProgressBar, TextInput } from "react-native-paper";
 import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import AppButton from "../assets/AppButton";
+import Imgs from "../assets/Images";
 import food from "../food_lessonImage.json";
 
 const Mod2Screen = () => {
 
 	const [status, setStatus] = useState();
+  const [image, setImage] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
 	const [progressColor , setProgessColor] = useState('white');
   const [totalCount, setTotalCount] = useState(food.length);
@@ -73,7 +75,7 @@ const Mod2Screen = () => {
   return(
     <View padding={30} height={'100%'} width={'100%'} backgroundColor={backgroundColor}>
       <ProgressBar progress={status} color={progressColor} />
-      <Image source={currentWord.image}/>
+      <Image source={Imgs[currentWord.image]} style={styles.stretch}/>
       <View>
         <AppButton 
           title= {answers[0]} 
@@ -110,7 +112,15 @@ const styles = StyleSheet.create({
 		height: '100%',
 		width: '100%',
 		backgroundColor: '#9d78ec'
-	},
+	},  
+  stretch: {
+    marginLeft: 30,
+    marginTop: 30,
+    alignContent: "center",
+    width: 200,
+    height: 200,
+    resizeMode: 'stretch',
+  },
   headline: {
     textAlign: "center",
     paddingTop: 30,
