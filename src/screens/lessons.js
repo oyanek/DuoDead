@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Text, View } from 'react-native';
 import { NavigationContainer }
          from '@react-navigation/native';
-
+import AppButton from '../assets/AppButton.js';
 import { Container, Header, MainContent, NavButton } from '../components/structure.js';
 
 class LessonScreen extends React.Component {
@@ -15,14 +15,14 @@ class LessonScreen extends React.Component {
         return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent : 'space-evenly'}}>
           <Text>Choose Your Lesson!</Text>
-          <Button
+          <AppButton
             title="Lesson 1" 
             onPress={this.loadRoute1}/>
-          <Button 
+          <AppButton 
             title='Lesson 2' 
             onPress={this.loadRoute2}/>
 
-          <Button 
+          <AppButton 
             title='Lesson 3' 
             onPress={this.loadRoute3}/>
         </View>

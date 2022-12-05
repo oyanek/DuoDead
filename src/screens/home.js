@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button, Text, View } from 'react-native';
 import { NavigationContainer }
          from '@react-navigation/native';
+import AppButton from '../assets/AppButton.js';
 
 import { Container, Header, MainContent, NavButton } from '../components/structure.js';
 import LessonScreen from './lessons.js';
@@ -15,15 +16,15 @@ class HomeScreen extends React.Component {
             <View style={{ flex: 1, justifyContent: 'space-evenly',
                            alignItems: 'center' }}>
               <Text>Duo-Dead Home!</Text>
-              <Button
+              <AppButton
                       title="Choose Language"
                       onPress={null}
                     />
-              <Button
+              <AppButton
                       title="Start Lessons"
                       onPress={this.loadRoute}
                     />
-              <Button
+              <AppButton
                       title="Account"
                       onPress={null}
                     />
