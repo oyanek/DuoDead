@@ -4,37 +4,37 @@ import { ProgressBar, Colors , TextInput} from "react-native-paper";
 import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import food from "../food_lesson.json"
 import AppButton from "../assets/AppButton"
+import useSound from "use-sound"
 
 const Mod1Screen = () => {
-
 	const [status, setStatus] = useState();
-  const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
-	const [progressColor , setProgessColor] = useState('white');
-  const [totalCount, setTotalCount] = useState(food.length);
-  const [words, setWords] = useState(food);
-  const [answers, setAnswers] = useState([]);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
-  const [currentWord, setCurrentWord] = useState(words[0])
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
+    const [progressColor , setProgessColor] = useState('white');
+    const [totalCount, setTotalCount] = useState(food.length);
+    const [answers, setAnswers] = useState([]);
+    const [currentWordIndex, setCurrentWordIndex] = useState(0)
+    const [currentWord, setCurrentWord] = useState(words[0])
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
 	useEffect(() => {
 		if(status === 1){
 		setProgessColor('#33CC66');
-    Alert.alert("You have completed the lesson! Your score was: "+countCorrectAnswers*100);
-    }
-  }, [status])
+        Alert.alert("You have completed the lesson! Your score was: "+countCorrectAnswers*100);
+        }
+    }, [status])
 
-  useEffect(() => {
-    const word = words[currentWordIndex];
-    setCurrentWord(word);
-    setAnswers(reorderAnswers(word));
-  }, [currentWordIndex]);
+    useEffect(() => {
+        const word = words[currentWordIndex];
+        setCurrentWord(word);
+        setAnswers(reorderAnswers(word));
+    }, [currentWordIndex]);
 
-  const reorderAnswers = question => {
+    const reorderAnswers = question => {
     const answers = [question.correct, ...question.incorrect];
 
+    //Randomize the answers
     for (let index = 0; index < answers.length; index++) {
         const j = Math.floor(Math.random() * index);
         const tmp = answers[index];
@@ -51,9 +51,9 @@ const Mod1Screen = () => {
 
     if (answer === currentWord.correct) {
       setCountCorrectAnswers(countCorrectAnswers + 1);
-      setBackgroundColor('green');
+      setBackgroundColor('#339966');
     }else{
-      setBackgroundColor('red');
+      setBackgroundColor('#A50021');
     }
 
     setTimeout(() => {
@@ -74,6 +74,7 @@ const Mod1Screen = () => {
     <View padding={30} height={'100%'} width={'100%'} backgroundColor={backgroundColor}>
       <ProgressBar progress={status} color={progressColor} />
       <Text style={styles.headline}>{words[currentWordIndex].oe_word}</Text>
+
       <View>
         <AppButton 
           title= {answers[0]} 
@@ -104,29 +105,28 @@ const Mod1Screen = () => {
 export default Mod1Screen ;
 
 const styles = StyleSheet.create({
-	
 	container :{
 		padding: 30,
 		height: '100%',
 		width: '100%',
 		backgroundColor: '#9d78ec'
 	},
-  headline: {
-    textAlign: "center",
-    paddingTop: 30,
-    fontSize: 36,
-    marginTop: 0,
-    width: '100%',
-    color: "white"
+    headline: {
+        textAlign: "center",
+        paddingTop: 30,
+        fontSize: 36,
+        marginTop: 0,
+        width: '100%',
+        color: "white"
 	},
-  text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: 'white',
+    text: {
+        fontSize: 16,
+        lineHeight: 21,
+        fontWeight: 'bold',
+        letterSpacing: 0.25,
+        color: 'white',
   },
-	textInput:{
+    textInput:{
 		marginTop : 60,
 		borderColor: "#A50021"
 	}
