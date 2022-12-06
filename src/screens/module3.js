@@ -1,10 +1,10 @@
 import React , {useState, useEffect} from "react";
-import {Button, Text , View, StyleSheet, Alert, SliderComponent} from 'react-native';
+import {Button, Text , View, StyleSheet, Alert} from 'react-native';
 import { ProgressBar, Colors , TextInput} from "react-native-paper";
 import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import food from "../food_lesson.json"
 import AppButton from "../assets/AppButton"
-const Sound = require('react-native-sound')
+import Sound from "react-native-sound";
 
 
 const Mod3Screen = () => {
@@ -19,19 +19,6 @@ const Mod3Screen = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [sound, setSound] = useState(() => {
-    new Sound(
-      currentWord.audio,
-      Sound.MAIN_BUNDLE,
-      error => {
-        if (error) {
-          console.log("failed to load the sound", error);
-          return;
-        }
-        sound.play(() => sound.release());
-      }
-    );
-  });
 
 	useEffect(() => {
 		if(status === 1){
@@ -43,19 +30,6 @@ const Mod3Screen = () => {
     useEffect(() => {
         const word = words[currentWordIndex];
         setCurrentWord(word);
-        setSound(()=>{
-          new Sound(
-            currentWord.audio,
-            Sound.MAIN_BUNDLE,
-            error => {
-              if (error) {
-                console.log("failed to load the sound", error);
-                return;
-              }
-              sound.play(() => sound.release());
-            }
-          );
-        })
         setAnswers(reorderAnswers(word));
     }, [currentWordIndex]);
 
@@ -101,7 +75,7 @@ const Mod3Screen = () => {
   return(
     <View padding={30} height={'100%'} width={'100%'} backgroundColor={backgroundColor}>
       <ProgressBar progress={status} color={progressColor} />
-      <Button title={"|>"} onPress={sound.play()}/>
+      <AppButton title={"Play Sound"}/>
       <View>
         <AppButton 
           title= {answers[0]} 
