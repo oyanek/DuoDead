@@ -36,7 +36,7 @@
 			"correct":"honey",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, singular, nominative",
-			"image":null,
+			"image":"honey",
 			"audio":"../lesson_audio/honig.mp3"
 		},
 		{
@@ -44,7 +44,7 @@
 			"correct":"meat",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, singular, nominative",
-			"image":null,
+			"image":"meat",
 			"audio":"../lesson_audio/flæsc.mp3"
 		},
 		{
@@ -52,7 +52,7 @@
 			"correct":"onion",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, singular, nominative",
-			"image":null,
+			"image":"onion",
 			"audio":"../lesson_audio/ciepe.mp3"
 		},
 		{
@@ -60,7 +60,7 @@
 			"correct":"wheat",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, singular, nominative",
-			"image":null,
+			"image":"wheat",
 			"audio":"../lesson_audio/hwæte.mp3"
 		}
 	]

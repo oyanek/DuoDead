@@ -4,7 +4,6 @@ import { ProgressBar, Colors , TextInput} from "react-native-paper";
 import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import food from "../food_lesson.json"
 import AppButton from "../assets/AppButton"
-import useSound from "use-sound"
 
 const Mod1Screen = () => {
 	const [status, setStatus] = useState();

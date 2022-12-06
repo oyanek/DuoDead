@@ -4,7 +4,7 @@ import { Colors, ProgressBar, TextInput } from "react-native-paper";
 import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import AppButton from "../assets/AppButton";
 import Imgs from "../assets/Images";
-import food from "../food_lessonImage.json";
+import food from "../food_lesson.json";
 
 const Mod2Screen = () => {
 
