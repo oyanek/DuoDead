@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Text , View, StyleSheet, Alert} from 'react-native';
+import {Button, Text , View, StyleSheet, Alert, Image} from 'react-native';
 import { NavigationContainer }
          from '@react-navigation/native';
 import AppButton from '../assets/AppButton.js';
@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-              <Text>Duo-Dead Home!</Text>
+              <Text style={{fontSize :20, color: 'white', alignSelf: 'center', fontWeight: 'bold'}}>Welcome to Duo Dead!</Text>
               <AppButton
                       title="Start Lessons"
                       onPress={this.loadRoute}
@@ -27,6 +27,9 @@ class HomeScreen extends React.Component {
                       title="Account"
                       onPress={null}
                     />
+
+               <Image source={require('../assets/DuoDead_Logo.png')} style={styles.logo} />
+
             </View>
           );
     }
@@ -36,10 +39,19 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
 	
-	container :{
+	container :
+  {
 		padding: 30,
 		height: '100%',
 		width: '100%',
 		backgroundColor: '#9d78ec'
-	}
+	},
+
+  logo: 
+  {
+    marginTop: 50,
+    width: 250,
+    height: 250,
+    alignSelf: 'center'
+  }
 })
