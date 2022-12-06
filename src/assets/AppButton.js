@@ -12,7 +12,7 @@ const AppButton = ({ onPress, title }) => (
     // ...
     appButtonContainer: {
       elevation: 8,
-      backgroundColor: "black",
+      backgroundColor: "#484085",
       borderRadius: 10,
       paddingVertical: 10,
       paddingHorizontal: 12,
