@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
                       onPress={null}
                     />
               <AppButton
-                      title="Account"
+                      title="My Progress"
                       onPress={null}
                     />
 
