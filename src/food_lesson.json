@@ -4,7 +4,7 @@
 			"correct":"bread",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, singular, nominative",
-			"image":"../lesson_images/bread.png",
+			"image":"bread",
 			"audio":"../lesson_audio/hlaf.mp3"
 		},
 		{
@@ -12,7 +12,7 @@
 			"correct":"fruit",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, singular, nominative",
-			"image":"../lesson_images/fruit.png",
+			"image":"fruit",
 			"audio":"../lesson_audio/wæstm.mp3"
 		},
 		{
@@ -20,7 +20,7 @@
 			"correct":"berries",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, plural, nominative",
-			"image":"../lesson_images/berries.png",
+			"image":"berries",
 			"audio":"../lesson_audio/berġan.mp3"
 		},
 		{
@@ -28,7 +28,7 @@
 			"correct":"butter",
 			"incorrect": ["wrong","wrong","wrong"],
 			"tags":"food, singular, nominative",
-			"image":"../lesson_images/butter.png",
+			"image":"butter",
 			"audio":"../lesson_audio/butere.mp3"
 		},
 		{

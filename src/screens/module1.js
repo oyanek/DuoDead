@@ -8,15 +8,16 @@ import useSound from "use-sound"
 
 const Mod1Screen = () => {
 	const [status, setStatus] = useState();
-    const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
-    const [progressColor , setProgessColor] = useState('white');
-    const [totalCount, setTotalCount] = useState(food.length);
-    const [answers, setAnswers] = useState([]);
-    const [currentWordIndex, setCurrentWordIndex] = useState(0)
-    const [currentWord, setCurrentWord] = useState(words[0])
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
+  const [progressColor , setProgessColor] = useState('white');
+  const [totalCount, setTotalCount] = useState(food.length);
+  const [answers, setAnswers] = useState([]);
+  const [words, setWords] = useState(food);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currentWord, setCurrentWord] = useState(words[0])
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
 	useEffect(() => {
 		if(status === 1){
