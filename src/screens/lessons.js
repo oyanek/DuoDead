@@ -14,7 +14,7 @@ class LessonScreen extends React.Component {
   render(){
         return (
         <View style={styles.container}>
-          <Text>Choose Your Lesson!</Text>
+          <Text style={{fontSize :25, fontWeight: 'bold', color: 'white'}}>Choose Your Lesson!</Text>
           <AppButton
             title="Word to Word" 
             onPress={this.loadRoute1}/>
