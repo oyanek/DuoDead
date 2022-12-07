@@ -25,21 +25,21 @@ const Mod1Screen = () => {
         }
     }, [status])
 
-    useEffect(() => {
-        const word = words[currentWordIndex];
-        setCurrentWord(word);
-        setAnswers(reorderAnswers(word));
-    }, [currentWordIndex]);
+  useEffect(() => {
+    const word = words[currentWordIndex];
+    setCurrentWord(word);
+    setAnswers(reorderAnswers(word));
+  }, [currentWordIndex]);
 
-    const reorderAnswers = question => {
+  const reorderAnswers = question => {
     const answers = [question.correct, ...question.incorrect];
 
     //Randomize the answers
     for (let index = 0; index < answers.length; index++) {
-        const j = Math.floor(Math.random() * index);
-        const tmp = answers[index];
-        answers[index] = answers[j];
-        answers[j] = tmp;
+      const j = Math.floor(Math.random() * index);
+      const tmp = answers[index];
+      answers[index] = answers[j];
+      answers[j] = tmp;
     }
 
     return answers;
