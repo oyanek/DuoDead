@@ -35,7 +35,7 @@ const Mod2Screen = () => {
   }, [currentWordIndex]);
 
   const reorderAnswers = question => {
-    const answers = [question.correct, ...question.incorrect];
+    const answers = [question.oe_word, ...question.incorrectoe];
 
     for (let index = 0; index < answers.length; index++) {
         const j = Math.floor(Math.random() * index);
@@ -51,7 +51,7 @@ const Mod2Screen = () => {
     setIsSubmitting(true);
     setSelectedAnswer(answer);
 
-    if (answer === currentWord.correct) {
+    if (answer === currentWord.oe_word) {
       setCountCorrectAnswers(countCorrectAnswers + 1);
       setBackgroundColor('green');
     }else{
