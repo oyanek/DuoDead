@@ -1,25 +1,23 @@
 import React , {useState, useEffect} from "react";
-import {Button, Text , View, StyleSheet, Alert} from 'react-native';
-import { ProgressBar, Colors , TextInput} from "react-native-paper";
-import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
+import { View, StyleSheet, Alert} from 'react-native';
+import { ProgressBar} from "react-native-paper";
 import food from "../food_lesson.json"
-import AppButton from "../assets/AppButton"
-import Sound from "react-native-sound";
-
+import Sounds from "../assets/Sounds";
+import AppButton from "../assets/AppButton";
+import useSound from "use-sound/dist";
 
 const Mod3Screen = () => {
 	const [status, setStatus] = useState();
   const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
   const [progressColor , setProgessColor] = useState('white');
-  const [totalCount, setTotalCount] = useState(food.length);
   const [answers, setAnswers] = useState([]);
   const [words, setWords] = useState(food);
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentWord, setCurrentWord] = useState(words[0])
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [play, setPlay] = useState(currentWord.audio);
 
+  //completion hook
 	useEffect(() => {
 		if(status === 1){
 		setProgessColor('#33CC66');
@@ -27,14 +25,17 @@ const Mod3Screen = () => {
         }
     }, [status])
 
+  //next word hook
   useEffect(() => {
     const word = words[currentWordIndex];
     setCurrentWord(word);
+    setPlay(Sounds[currentWord.correct]);
     setAnswers(reorderAnswers(word));
   }, [currentWordIndex]);
 
+  //random answer order hook
   const reorderAnswers = question => {
-    const answers = [question.correct, ...question.incorrect];
+    const answers = [question.oe_word, ...question.incorrectoe];
     for (let index = 0; index < answers.length; index++) {
       const j = Math.floor(Math.random() * index);
         const tmp = answers[index];
@@ -44,11 +45,10 @@ const Mod3Screen = () => {
     return answers;
   };
 
+  //selected answer hook
   const selectAnswer = answer => {
-    setIsSubmitting(true);
-    setSelectedAnswer(answer);
 
-    if (answer === currentWord.correct) {
+    if (answer === currentWord.oe_word) {
       setCountCorrectAnswers(countCorrectAnswers + 1);
       setBackgroundColor('#339966');
     }else{
@@ -63,16 +63,16 @@ const Mod3Screen = () => {
       } else {
         setStatus(newWordIndex/words.length)
         setCurrentWordIndex(newWordIndex);
-        setIsSubmitting(false);
-        setSelectedAnswer(null);
       }
     }, 750);
   };
 
+  var [sound] = useSound(play, {volume: 1});
+
   return(
     <View padding={30} height={'100%'} width={'100%'} backgroundColor={backgroundColor}>
       <ProgressBar progress={status} color={progressColor} />
-      <AppButton title={"Play Sound"}/>
+      <AppButton title={"Play Sound"} onPress={sound}/>
       <View>
         <AppButton 
           title= {answers[0]} 

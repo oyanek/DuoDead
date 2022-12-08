@@ -1,11 +1,6 @@
 import * as React from 'react';
-import {Button, Text , View, StyleSheet, Alert, Image} from 'react-native';
-import { NavigationContainer }
-         from '@react-navigation/native';
+import { Text , View, StyleSheet, Image} from 'react-native';
 import AppButton from '../assets/AppButton.js';
-
-import { Container, Header, MainContent, NavButton } from '../components/structure.js';
-import LessonScreen from './lessons.js';
 
 class HomeScreen extends React.Component {
 

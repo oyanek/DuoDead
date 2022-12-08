@@ -1,7 +1,6 @@
 import React , {useState, useEffect} from "react";
-import {Button, Text , View, StyleSheet, Alert, SliderComponent} from 'react-native';
-import { ProgressBar, Colors , TextInput} from "react-native-paper";
-import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
+import {Text , View, StyleSheet, Alert} from 'react-native';
+import { ProgressBar} from "react-native-paper";
 import food from "../food_lesson.json"
 import AppButton from "../assets/AppButton"
 
@@ -9,15 +8,13 @@ const Mod1Screen = () => {
 	const [status, setStatus] = useState();
   const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
   const [progressColor , setProgessColor] = useState('white');
-  const [totalCount, setTotalCount] = useState(food.length);
   const [answers, setAnswers] = useState([]);
   const [words, setWords] = useState(food);
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentWord, setCurrentWord] = useState(words[0])
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  //completion hook
 	useEffect(() => {
 		if(status === 1){
 		setProgessColor('#33CC66');
@@ -25,12 +22,14 @@ const Mod1Screen = () => {
         }
     }, [status])
 
+    //next word hook
   useEffect(() => {
     const word = words[currentWordIndex];
     setCurrentWord(word);
     setAnswers(reorderAnswers(word));
   }, [currentWordIndex]);
 
+  //random answer order hook
   const reorderAnswers = question => {
     const answers = [question.correct, ...question.incorrect];
 
@@ -45,9 +44,8 @@ const Mod1Screen = () => {
     return answers;
   };
 
+  //selected answer hook
   const selectAnswer = answer => {
-    setIsSubmitting(true);
-    setSelectedAnswer(answer);
 
     if (answer === currentWord.correct) {
       setCountCorrectAnswers(countCorrectAnswers + 1);
@@ -64,8 +62,6 @@ const Mod1Screen = () => {
       } else {
         setStatus(newWordIndex/words.length)
         setCurrentWordIndex(newWordIndex);
-        setIsSubmitting(false);
-        setSelectedAnswer(null);
       }
     }, 750);
   };
