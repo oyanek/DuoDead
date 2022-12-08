@@ -12,9 +12,7 @@ const Mod1Screen = () => {
   const [words, setWords] = useState(food);
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentWord, setCurrentWord] = useState(words[0])
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   //completion hook
 	useEffect(() => {
@@ -48,8 +46,6 @@ const Mod1Screen = () => {
 
   //selected answer hook
   const selectAnswer = answer => {
-    setIsSubmitting(true);
-    setSelectedAnswer(answer);
 
     if (answer === currentWord.correct) {
       setCountCorrectAnswers(countCorrectAnswers + 1);
@@ -66,8 +62,6 @@ const Mod1Screen = () => {
       } else {
         setStatus(newWordIndex/words.length)
         setCurrentWordIndex(newWordIndex);
-        setIsSubmitting(false);
-        setSelectedAnswer(null);
       }
     }, 750);
   };

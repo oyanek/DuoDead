@@ -6,7 +6,6 @@ import Sounds from "../assets/Sounds";
 import AppButton from "../assets/AppButton";
 import useSound from "use-sound/dist";
 
-
 const Mod3Screen = () => {
 	const [status, setStatus] = useState();
   const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
@@ -15,9 +14,7 @@ const Mod3Screen = () => {
   const [words, setWords] = useState(food);
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentWord, setCurrentWord] = useState(words[0])
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [play, setPlay] = useState(currentWord.audio);
 
   //completion hook
@@ -50,8 +47,6 @@ const Mod3Screen = () => {
 
   //selected answer hook
   const selectAnswer = answer => {
-    setIsSubmitting(true);
-    setSelectedAnswer(answer);
 
     if (answer === currentWord.oe_word) {
       setCountCorrectAnswers(countCorrectAnswers + 1);
@@ -68,8 +63,6 @@ const Mod3Screen = () => {
       } else {
         setStatus(newWordIndex/words.length)
         setCurrentWordIndex(newWordIndex);
-        setIsSubmitting(false);
-        setSelectedAnswer(null);
       }
     }, 750);
   };
