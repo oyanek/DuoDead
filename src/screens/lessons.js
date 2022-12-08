@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { Button, Text, View, StyleSheet } from 'react-native';
-import { NavigationContainer }
-         from '@react-navigation/native';
+import { Text, View, StyleSheet } from 'react-native';
 import AppButton from '../assets/AppButton.js';
-import { Container, Header, MainContent, NavButton } from '../components/structure.js';
 
 class LessonScreen extends React.Component {
   
+  //word to word
   loadRoute1 = () => this.props.navigation.navigate('Lesson 1');
+
+  //image to word
   loadRoute2 = () => this.props.navigation.navigate('Lesson 2');
+
+  //audio to word
   loadRoute3 = () => this.props.navigation.navigate('Lesson 3');
   
   render(){

@@ -1,7 +1,6 @@
 import React , {useState, useEffect} from "react";
-import {Button, Text , View, StyleSheet, Alert} from 'react-native';
-import { ProgressBar, Colors , TextInput} from "react-native-paper";
-import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
+import { View, StyleSheet, Alert} from 'react-native';
+import { ProgressBar} from "react-native-paper";
 import food from "../food_lesson.json"
 import Sounds from "../assets/Sounds";
 import AppButton from "../assets/AppButton";
@@ -12,7 +11,6 @@ const Mod3Screen = () => {
 	const [status, setStatus] = useState();
   const [backgroundColor, setBackgroundColor] = useState('#9d78ec');
   const [progressColor , setProgessColor] = useState('white');
-  const [totalCount, setTotalCount] = useState(food.length);
   const [answers, setAnswers] = useState([]);
   const [words, setWords] = useState(food);
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
@@ -38,7 +36,7 @@ const Mod3Screen = () => {
     setAnswers(reorderAnswers(word));
   }, [currentWordIndex]);
 
-  //random answer selection hook
+  //random answer order hook
   const reorderAnswers = question => {
     const answers = [question.oe_word, ...question.incorrectoe];
     for (let index = 0; index < answers.length; index++) {
