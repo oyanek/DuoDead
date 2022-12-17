@@ -5,6 +5,7 @@ import AppButton from '../assets/AppButton.js';
 class HomeScreen extends React.Component {
 
     loadRoute = () => this.props.navigation.navigate('Lessons');
+    loadRoute2 = () => this.props.navigation.navigate('My Progress');
 
     render(){
         return (
@@ -20,7 +21,7 @@ class HomeScreen extends React.Component {
                     />
               <AppButton
                       title="My Progress"
-                      onPress={null}
+                      onPress={this.loadRoute2}
                     />
 
                <Image source={require('../assets/DuoDead_Logo.png')} style={styles.logo} />
